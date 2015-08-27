@@ -20,7 +20,7 @@
 #
 
 from sys import argv
-import bot
+import telegrambot
 
 err = "E:"
 war = "W:"
@@ -33,18 +33,19 @@ if len(argv) != 4+1:
 
 msg = argv[4]
 token = argv[1]
-doxbot = bot.Bot(token)
+doxbot = telegrambot.Bot(token)
 chat_id = argv[2]
 ripetizioni = int(argv[3])
 
 if not doxbot.TokenValido():
 	print err, "Token non valido"
 	exit(1)
-for i in range(1, ripetizioni+1):
-	ret = doxbot.InviaMessaggio(chat_id, msg)
-	if ret != "OK":
-		print err, ret
-		exit(1)
-	print ret, i
-exit(0)
 
+for i in range(1, ripetizioni+1):
+	ret = doxbot.Method("sendMessage", {'chat_id' : chat_id, 'text' : msg})
+	if not ret['ok']:
+		print err, ret['description']
+		exit(1)
+	print i
+
+exit(0)

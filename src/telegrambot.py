@@ -24,23 +24,20 @@ import requests
 turl = "https://api.telegram.org/bot"
 
 class Bot:
-	__tv = False #TokenValido
+	__tokenValido = False
 	__token = "devil666"
 	
+	def Method(self, method, params = {}):
+		return requests.get(turl+self.__token+"/"+method, params = params).json()
+
 	def TokenValido(self):
-		return self.__tv
+		return self.__tokenValido
+	
+	def Token(self):
+		return self.__token 
 
 	def __init__(self, token):
 		self.__token = token
-		#verifica token
-		self.__tv = requests.get(turl+token+"/getMe").json()['ok']
-			 
-	def InviaMessaggio(self, chat_id, msg):
-		#Return:
-		#Descrizione dell'errore per errori
-		#"OK" altrimenti
-		req = requests.get(turl+self.__token+"/sendMessage", params = { "chat_id" : chat_id, "text" : msg}).json()
-		if req['ok'] == False:
-			return req['description']
-		return "OK"
+		self.__tokenValido = self.Method("getMe")['ok']
+		
 
