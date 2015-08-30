@@ -9,8 +9,8 @@ Invia N messaggi ad un gruppo o ad una chat su telegram usando un bot.
 
 ## Sintassi ##
 
-main.py token chat_id ripetizioni messaggio
-chat.py token
+* main.py token chat_id ripetizioni messaggio
+* chat.py token
 
 ## Token ##
 
