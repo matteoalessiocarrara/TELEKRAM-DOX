@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#  
+
 #  Copyright 2015 Matteo Alessio Carrara <sw.matteoac@gmail.com>
 #
 #  This program is free software; you can redistribute it and/or modify
@@ -17,7 +17,6 @@
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
-#
 
 import requests
 
@@ -28,16 +27,30 @@ class Bot:
 	__token = "devil666"
 	
 	def Method(self, method, params = {}):
+		"""
+		Collegamento a un metodo delle Telegram Bot Api
+		
+		Args:
+		  method:
+		    Il nome del metodo
+		  params:
+		    I parametri (opzionali)
+
+		Returns:
+		  Dizionario ricavato dalla decodifica del return in json
+		"""
 		return requests.get(turl+self.__token+"/"+method, params = params).json()
 
 	def TokenValido(self):
 		return self.__tokenValido
 	
 	def Token(self):
+		"""Restituisce il token di questo bot"""
 		return self.__token 
 
 	def __init__(self, token):
 		self.__token = token
-		self.__tokenValido = self.Method("getMe")['ok']
+		self.__tokenValido = self.Method("getMe")['ok'] if ":" in token else False
+		
 		
 
