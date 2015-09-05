@@ -23,7 +23,7 @@ Chat.py mostra tutti i chat_id delle chat/gruppi con messaggi non letti. Usa il 
 
 ## Altre informazioni ##
 
->  Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
+> This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.  
 
 Aggiornamenti: [GitHub] (https://github.com/matteoalessiocarrara)  
 Email: sw.matteoac@gmail.com
