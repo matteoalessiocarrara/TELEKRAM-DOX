@@ -1,3 +1,9 @@
+12/9/2015
+---------
+ - Codice migliorato
+ - Aggiunta breve descrizione del software nella schermata help
+ - Risolto bug nel controllo dei parametri e migliorato per chat.py
+
 30/8/2015
 ---------
  - Aggiornato telegrambot.py

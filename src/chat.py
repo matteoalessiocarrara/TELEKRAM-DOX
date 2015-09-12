@@ -18,29 +18,30 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
-from sys import argv
-import telegrambot
-from out import *
+import lib.telegrambot
+from lib.out import *
+from sys import argv, stderr
 
+nomesw = argv[0]
 
-
-if len(argv) > 1+1: exit(err+"Uso: "+argv[0]+" token")
+if len(argv) != 1+1 or "-h" in argv or "--help" in argv:
+	print >>stderr, inf+"Mostra i chat_id delle chat con messaggi ancora non letti da un bot di Telegram"
+	exit(err+"Uso: "+nomesw+" token")
 
 token = argv[1]
-bot = telegrambot.Bot(token)
+bot = lib.telegrambot.Bot(token)
 
-if not bot.TokenValido(): exit("Token non valido")
+if not bot.TokenValido(): exit(err+"Token non valido")
 
-lChat = [] #lista chat
+listaChat = []
 ret = bot.Method("getUpdates")
 
 for i in range(len(ret['result'])):
 	chat = ret['result'][i]['message']['chat']
-	if chat not in lChat:
-		lChat.append(chat)
-		print ""
+	if chat not in listaChat:
+		listaChat.append(chat)
+		print "" #separatore chat
 		for elemento in chat:
 			print elemento, chat[elemento]
 
 print ""
-exit()
