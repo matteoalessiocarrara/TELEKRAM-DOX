@@ -24,22 +24,20 @@ from sys import argv, stderr
 
 nomesw = argv[0]
 
-if len(argv) != 4+1:
-	print >>stderr, inf+"Usa un bot di Telegram per inviare N messaggi uguali ad un gruppo/chat"
-	exit(err+"Uso: "+nomesw+" token chat_id ripetizioni messaggio")
+if len(argv) != 4 + 1:
+	print >>stderr, inf + "Usa un bot di Telegram per inviare N messaggi uguali ad un gruppo/chat"
+	exit(err + "Uso: " + nomesw + " token chat_id ripetizioni messaggio")
 
 msg = argv[4]
 token = argv[1]
-doxbot = lib.telegrambot.Bot(token)
+doxbot = telegrambot.Bot(token)
 chat_id = argv[2]
 ripetizioni = int(argv[3])
 
-if not doxbot.TokenValido(): exit(err+"Token non valido")
+if not doxbot.TokenValido(): exit(err + "Token non valido")
 
-for i in range(1, ripetizioni+1):
-	ret = doxbot.Method("sendMessage", {'chat_id' : chat_id, 'text' : msg})
+for i in range(1, ripetizioni + 1):
+	ret = doxbot.Method("sendMessage", {'chat_id': chat_id, 'text': msg})
 	if not ret['ok']: 
-		exit(err+ret['description'])
+		exit(err + ret['description'])
 	print i, "OK"
-
-exit()

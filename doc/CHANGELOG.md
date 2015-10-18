@@ -1,3 +1,7 @@
+18/10/2015
+----------
+ - Codice migliorato
+
 12/9/2015
 ---------
  - Codice migliorato
