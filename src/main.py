@@ -34,10 +34,11 @@ doxbot = telegrambot.Bot(token)
 chat_id = argv[2]
 ripetizioni = int(argv[3])
 
-if not doxbot.TokenValido(): exit(err + "Token non valido")
+if not doxbot.TokenValido():
+	exit(err + "Token non valido")
 
 for i in range(1, ripetizioni + 1):
 	ret = doxbot.Method("sendMessage", {'chat_id': chat_id, 'text': msg})
-	if not ret['ok']: 
+	if not ret['ok']:
 		exit(err + ret['description'])
 	print i, "OK"

@@ -31,7 +31,8 @@ if (len(argv) != 1 + 1) or ("-h" in argv) or ("--help" in argv):
 token = argv[1]
 bot = telegrambot.Bot(token)
 
-if not bot.TokenValido(): exit(err + "Token non valido")
+if not bot.TokenValido():
+	exit(err + "Token non valido")
 
 listaChat = []
 ret = bot.Method("getUpdates")
