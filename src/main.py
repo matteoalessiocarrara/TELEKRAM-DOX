@@ -18,7 +18,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
-import lib.telegrambot
+import lib.Telegram_Bot_APY.src.telegrambot as telegrambot
 from lib.out import *
 from sys import argv, stderr
 
