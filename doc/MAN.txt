@@ -1,0 +1,39 @@
+Help on module __init__:
+
+NAME
+    __init__ - # -*- coding: utf-8 -*-
+
+FILE
+    /home/richard/programmazione/NUOVI/GIT/Telegram-Bot-APY/src/__init__.py
+
+
+Help on module telegrambot:
+
+NAME
+    telegrambot - # -*- coding: utf-8 -*-
+
+FILE
+    /home/richard/programmazione/NUOVI/GIT/Telegram-Bot-APY/src/telegrambot.py
+
+CLASSES
+    Bot
+    
+    class Bot
+     |  Methods defined here:
+     |  
+     |  Method(self, method, params={})
+     |      "Collegamento" a un metodo delle Telegram Bot Api
+     |      Passare in method il nome del metodo, in params gli eventuali parametri
+     |      Restituisce un dizionario ricavato dalla decodifica del return in json
+     |  
+     |  Token(self)
+     |      Restituisce il token di questo bot
+     |  
+     |  TokenValido(self)
+     |  
+     |  __init__(self, token)
+
+DATA
+    turl = 'https://api.telegram.org/bot'
+
+
